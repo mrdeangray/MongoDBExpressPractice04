@@ -9,7 +9,7 @@ app.use(methodOverride('_method'))
 
 //const Product = require('./models/product')
 
-mongoose.connect('mongodb://127.0.0.1:27017/farm2', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://127.0.0.1:27017/farm4', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("MONGO CONNECTION OPEN!!!")
     })
