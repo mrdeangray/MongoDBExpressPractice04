@@ -62,6 +62,13 @@ res.redirect("/products")
  })
  
 
+ app.delete("/products/:id", async(req, res)=>{
+    const {id} = req.params
+ const product = await Product.findByIdAndDelete(id)
+res.redirect("/products")
+ // res.send(`the selected item is: ${product.name}`)
+ })
+
 app.get("/products/:id/edit", async(req, res)=>{
     const {id} = req.params
  const product = await Product.findByIdAndUpdate(id)
