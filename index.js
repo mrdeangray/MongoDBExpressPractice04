@@ -7,7 +7,7 @@ const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
 
-//const Product = require('./models/product')
+const Product = require('./models/product')
 
 mongoose.connect('mongodb://127.0.0.1:27017/farm4', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -30,6 +30,7 @@ app.listen(3000, ()=>{
     console.log("APP is listening on port 3000")
 })
 
-app.get("/products", (req, res)=>{
-    res.send("All products")
+app.get("/products", async (req, res)=>{
+    const products = await Product.find({})
+    res.send(`all products ${products}`)
 })
