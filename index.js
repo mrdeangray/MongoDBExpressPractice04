@@ -30,7 +30,21 @@ app.listen(3000, ()=>{
     console.log("APP is listening on port 3000")
 })
 
+app.get("/products/new", async (req, res)=>{
+res.render("products/new")
+    // res.send(`new product`)
+})
+
+
 app.get("/products", async (req, res)=>{
     const products = await Product.find({})
-    res.send(`all products ${products}`)
+    res.render("products/index", {products})
+    // res.send(`all products ${products}`)
+})
+
+app.get("/products/:id", async(req, res)=>{
+   const {id} = req.params
+const product = await Product.findById(id)
+res.render("products/show", {product})
+// res.send(`the selected item is: ${product.name}`)
 })
