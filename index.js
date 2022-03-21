@@ -5,6 +5,7 @@ const path = require('path')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
+app.use(express.static('public'));
 
 
 const Product = require('./models/product')
